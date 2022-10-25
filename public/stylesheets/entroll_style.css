@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital@1&display=swap');
+body{
+    background-color:#DEFFFF;
+}
+
+main{
+
+}
+
+.entroll{
+    position:relative;
+    border-style:solid;
+    border-width:1px;
+    border-radius:7px;
+    width:400px;
+    height:500px;
+    left:900px;
+    top:100px;
+    background-color:#FFFFFF;
+}
+
+.entroll_title{
+    font-family: 'Noto Serif TC', serif;
+    position:absolute;
+    left:50px;
+    top:50px;
+    font-size:1.2cm;
+}
+
+.entroll_img > img{
+    width:50px;
+    position:absolute;
+    left:150px;
+    top:60px;
+}
+
+.info{
+    text-align: right;
+    position:absolute;
+    left:50px;
+    bottom:130px;
+    font-size:0.5cm;
+    font-family: 'Noto Serif TC', serif;
+}
+
+.info > input[type="text"],[type="email"]{
+    padding:10px 20px;
+    border-radius:7px;
+    border:1px black solid;
+    margin-bottom:30px;
+}
+
+/*
+.choose_identity{
+    font-size:0.5cm;
+    position:absolute;
+    bottom:120px;
+    left:56px;
+    font-family: 'Noto Serif TC', serif;
+}*/
+
+.btn{
+    position:absolute;
+    bottom:50px;
+    left:135px;
+}
+
+a > button{
+    font-family: 'Josefin Sans', sans-serif;
+    font-size:large;
+    background-color:#FFFFFF;
+    border-radius:8px;
+    width:150px;
+    height:50px;
+}
+
+a > button:hover{
+    cursor: pointer;
+    background-color: #F2FFFF;
+}
+
+
+.image > img{
+    position:absolute;
+    width:400px;
+    top:250px;
+    left:200px;
+}
+
+.title{
+    font-family: 'Noto Serif TC', serif;
+    position:absolute;
+    width:400px;
+    top:100px;
+    left:280px;
+    font-size:1cm;
+}

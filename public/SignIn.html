@@ -1,0 +1,100 @@
+<html>
+    <head>  
+        <meta charset="UTF-8">  
+        <title>共享機車_登入</title>  
+        <style>
+            @import url(https://fonts.googleapis.com/earlyaccess/cwtexyen.css);
+            *{
+                font-family:'cwTeXYen', Comic Sans MS;  
+            }
+            body{
+                background: radial-gradient(transparent 85%, #3D7878 100%),url("https://png.pngtree.com/thumb_back/fw800/back_our/20190625/ourmid/pngtree-creative-road-pavement-background-image_262322.jpg");
+                height: 100%;       
+                min-width: 100%;     
+                background-size: cover;
+            }
+            body:hover{
+                background: radial-gradient(transparent 55%, #3D7878 100%),url("https://png.pngtree.com/thumb_back/fw800/back_our/20190625/ourmid/pngtree-creative-road-pavement-background-image_262322.jpg");
+                height: 100%;       
+                min-width: 100%;     
+                background-size: cover;
+            }
+            .Project_Name{
+                color: #3C3C3C;
+                font-size: 150%;
+                position:relative;   
+                margin: auto;
+                top: -150px;
+                text-align:center;
+            }
+            .title, .submit, .Login_up{
+                color: #3C3C3C;
+                margin: 10px;
+                text-align:center;
+            }
+            #account, #password{
+                width: 200px;
+                height: 25px;
+                margin: 10px;
+                color: #336666;
+            }
+            #container{
+                padding: 10px;
+                width: 280px;
+                height: 250px;
+                background-color: #FFF4C1;
+                border-radius: 60px;
+                border-top: 15px groove #A3D1D1;
+                border-bottom: 10px ridge #A3D1D1;
+                box-shadow: 0 0px 70px rgba(0, 0, 0, 0.1);
+                position:relative;   
+                margin: auto;
+                top: -150px;
+                text-align:center;
+            }
+            .bg1{
+                width: 200;
+                height: 200;
+                position: relative;
+                top:-50px;
+                left: 350px;
+            }
+            .bg2{
+                width: 200;
+                height: 200;
+                position: relative;
+                top: -85px;
+                left: 160px;
+            }
+        </style>
+    </html>
+  <body>
+	<script type="text/javascript"src="app.js"></script>
+    <img class="bg1" src="./images/cloud1.png" title="準備一起加入我們~">
+    <a href="https://zh.lovepik.com/images/png-855865.html"></a>
+    <div class="Project_Name">
+      <h2>共享機車</h2>
+    </div>
+    
+    <div class="Login_Page">
+      <div id="container">
+
+        <div class="Login">  
+          
+          <h2 class="title">登入 Login</h2>
+
+			<form id="loadCheck" action="http://127.0.0.1:3000/login" method="post">
+            <input type="text" id="account" name="account" placeholder="帳號Account" required>
+            <input type="text" id="password" name="password" placeholder="密碼Password" required>
+            <input type="submit" value="Let's Go!" class="submit">
+			</form>
+
+          <a href="index.html"><h5 class="Login_up" >註冊帳號</h5></a>
+
+          <img class="bg2" src="./images/scooter.png" title="快來一起開心騎ㄅㄨㄅㄨ吧!!!">
+          
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
