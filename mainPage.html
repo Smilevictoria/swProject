@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" 
+        integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./stylesheets/mainPage_style.css">
+    <title>海大共乘車主主畫面</title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <script src="./javascripts/mainPage_scripts.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <header>
+        <div class="header-content">
+            <h1 class="logo">海大共乘系統</h1>
+            <nav class="header-nav">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-outline-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        修改資料
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><button class="dropdown-item" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal_1" data-bs-whatever="@mdo">修改個人資訊</button></li>
+                      <li><button class="dropdown-item" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal_2" data-bs-whatever="@mdo">修改可載客時間</button></li>
+                      <li><button class="dropdown-item" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal_3" data-bs-whatever="@mdo">修改可載客區域</button></li>
+                    </ul>
+                  
+
+                  <div class="modal fade" id="exampleModal_1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel_1">修改個人資訊</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <form method="post" action="http://127.0.0.1:3000/changeOwnerBasic">
+                            <div class="change_info">
+                              <label for="name">姓名:</label>
+                              <input type="text" name="name" id="name">
+                            </div>
+                            <div class="change_info">
+                              <label for="gender">性別:</label>
+                              <select required name="gender" id="gender">
+                                  <option value="male">請選擇你的性別</option>
+                                  <option value="male">男</option>
+                                  <option value="female">女</option>
+                                </select>
+                            </div>
+                            <div class="change_info">
+                              <label for="phone">手機號碼:</label>
+                              <input type="tel"name="phone" id="phone" pattern="[0-9]{10}" >
+                            </div>
+                            <div class="change_info">
+                              <label for="licensePlateNum">車牌:</label>
+                              <input type="text" name="licensePlateNum" id="licensePlateNum" >
+                            </div>
+                            <div class="change_info">
+                              <p><label for="helmet">是否提供安全帽:</label>
+                              <label>
+                                <input type="radio" value="yes" name="helmet" id="helmet">是
+                              </label>
+                              <label>
+                                <input type="radio" value="no" name="helmet" id="helmet" checked>否</p>
+                              </label>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal">Close</button>
+                              <button type="submit" class="btn btn-outline-success" data-bs-dismiss="modal" onClick="window.location.reload();">確認</button>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="modal fade" id="exampleModal_2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel_2">修改可載客時間</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <form method="post" action="http://127.0.0.1:3000/changeOwnerTime">
+                            <h3>請選擇可接送的時段</h3>
+                              <div class="change_time">
+                                <p><input type="checkbox" value="zero-one" name="workingTime">00:00-01:00&emsp;
+                                <input type="checkbox" value="one-two" name="workingTime">01:00-02:00</p>
+                                <p><input type="checkbox" value="two-three" name="workingTime">02:00-03:00&emsp;
+                                <input type="checkbox" value="three-four" name="workingTime">03:00-04:00</p>
+                                <p><input type="checkbox" value="four-five" name="workingTime">04:00-05:00&emsp;
+                                <input type="checkbox" value="five-six" name="workingTime">05:00-06:00</p>
+                                <p><input type="checkbox" value="six-seven" name="workingTime">06:00-07:00&emsp;
+                                <input type="checkbox" value="seven-eight" name="workingTime">07:00-08:00</p>
+                                <p><input type="checkbox" value="eight-nine" name="workingTime">08:00-09:00&emsp;
+                                <input type="checkbox" value="nine-ten" name="workingTime">09:00-10:00</p>
+                                <p><input type="checkbox" value="ten-eleven" name="workingTime">10:00-11:00&emsp;
+                                <input type="checkbox" value="eleven-twelve" name="workingTime">11:00-12:00</p>
+                                <p><input type="checkbox" value="twelve-thirteen" name="workingTime">12:00-13:00&emsp;
+                                <input type="checkbox" value="thirteen-fourteen" name="workingTime">13:00-14:00</p>
+                                <p><input type="checkbox" value="fourteen-fifteen"name="workingTime">14:00-15:00&emsp;
+                                <input type="checkbox" value="fifteen-sixteen" name="workingTime">15:00-16:00</p>
+                                <p><input type="checkbox" value="sixteen-seventeen" name="workingTime">16:00-17:00&emsp;
+                                <input type="checkbox" value="seventeen-eighteen" name="workingTime">17:00-18:00</p>
+                                <p><input type="checkbox" value="eighteen-nineteen" name="workingTime">18:00-19:00&emsp;
+                                <input type="checkbox" value="nineteen-twenty" name="workingTime">19:00-20:00</p>
+                                <p><input type="checkbox" value="twenty-twentyOne" name="workingTime">20:00-21:00&emsp;
+                                <input type="checkbox" value="twentyOne-twentyTwo" name="workingTime">21:00-22:00</p>
+                                <p><input type="checkbox" value="twentyTwo-twentyThree" name="workingTime">22:00-23:00&emsp;
+                                <input type="checkbox" value="twentyThree-twentyFour" name="workingTime">23:00-00:00</p>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal">Close</button>
+                              <button type="submit" class="btn btn-outline-success" data-bs-dismiss="modal" onClick="window.location.reload();">確認</button>
+                            
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="modal fade" id="exampleModal_3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">修改可載客區域</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <form method="post" action="http://127.0.0.1:3000/changeOwnerLoc">
+                            <h4 class="location-title">可接受接送的區域</h4>
+                              <div class="change_location">
+                                <p><input type="checkbox" value="Zhongzheng" name="location" id="Zhongzheng" style="vertical-align:middle;">中正區<br></p>
+                                <p><input type="checkbox" value="Sinyi" name="location" id="Sinyi">信義區<br></p>
+                                <p><input type="checkbox" value="Ren-ai" name="location" id="Ren-ai">仁愛區<br></p>
+                                <p><input type="checkbox" value="Zhongshan" name="location" id="Zhongshan">中山區<br></p>
+                                <p><input type="checkbox" value="Anle" name="location" id="Anle">安樂區<br></p>
+                                <p><input type="checkbox" value="Nuannuan" name="location" id="Nuannuan">暖暖區<br></p>
+                                <p><input type="checkbox" value="Qidu" name="location" id="Qidu">七堵區<br></p>
+                              </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal">Close</button>
+                              <button type="submit" class="btn btn-outline-success" data-bs-dismiss="modal" onClick="window.location.reload();">確認</button>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <button type="button" class="btn btn-outline-success" onclick="btn1()">
+                    換身分
+                  </button>
+                  <!-- Button trigger modal -->
+                  <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    登出
+                  </button>
+                  <!-- Modal -->
+                  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">登出</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                        確定要登出嗎!!!!!!
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
+                          <a href="SignIn.html">
+                          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">確定</button></a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                 </div> 
+            </nav>
+        </div>
+    </header>
+    <div></div>
+    
+        <div class="pair">
+            <div class="container">
+                
+            </div>
+        </div>
+
+</body>
+</html>

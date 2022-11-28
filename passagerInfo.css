@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600&display=swap');
+
+
+body{
+    font-family: 'Noto Serif TC', serif;
+    background-color: cornsilk;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*If the screen size is 900 px wide or less ,hide the element*/
+@media only screen and (max-width: 980px){
+    div.img1{
+        display: none;
+    }
+}
+@media(max-width:569px){
+    .information{
+    overflow-x: auto;
+  }
+}
+
+.img1 > img{
+    position:absolute;
+    max-width: 25%;
+    left: 50px;
+    bottom: 40px;
+}
+
+.container{
+    position: relative;
+    width:500px;
+    height:600px;
+}
+
+.page_title{
+    text-align: center;
+    margin-top: 30px;
+    font-size: 30px;
+    text-shadow: white 5px 10px 10px
+}
+
+.information{
+    width:400px;
+    height:350px;
+    margin:90px auto;
+    background-color:white;
+    border:1px solid #333;
+    border-radius:8px;
+    padding:10px;
+    max-width:400px;
+    position: absolute;
+}
+
+.info-group{
+    display:flex;
+    /*系統預設row(水平)*/
+    flex-direction:column;
+    margin-bottom:10px;
+    /*設置網格行與列之間的間隙*/
+    gap: 5px;
+}
+.info-group > label{
+    font-family: 'Noto Serif TC', serif;
+    font-weight:bold;
+    font-size:18px;
+}
+
+.info-group > input{
+    border-radius:4px;
+    border:1px solid;
+    padding:8px;
+}
+
+button{
+    font-family: 'Noto Serif TC', serif;
+    background-color:white;
+    width: 150px;
+    height:50px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border: 1px solid;
+    opacity: 1;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+    width: 100%;
+
+}
+
+button:hover{
+    cursor: pointer;
+    background-color:beige;
+}

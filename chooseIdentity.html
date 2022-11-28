@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./stylesheets/chooseIdentity_style.css">
+    <title>Title</title>
+</head> 
+<body>
+    <div class="container">
+      <form id="chooseIdentity" action="http://127.0.0.1:3000/main" method="post">
+        <div class="choice">
+          <h1>選擇你的身分</h1>
+          <div class="btn">
+            <a href="mainPage.html">
+              <button type="submit" class="owner" id="owner" name="identity" value="owner" >車主</button>
+            </a>
+            <a href="showRider.html">
+              <button type="submit" class="passager" id="passager" name="identity" value="passenger">乘客</button>
+            </a>
+          </div>
+        </div>
+      </form>
+      <img class="arrow" src="./images/doodle-green-spiral-arrow.png">
+      <img class="star" src="./images/doodle-orange-texture-star.png">
+      <img class="pointed-star" src="./images/doodle-red-seven-pointed-star.png">
+      <img class="people" src="./images/biro-online-zoom-meeting-of-several-people.png">
+    </div>
+</body>
+</html>

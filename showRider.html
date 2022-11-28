@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>車主列表</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Noto+Sans+TC);
+        *{
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+        header{
+            text-align: center;
+            height: 130px;
+            background-color:rgb(157, 215, 233);
+            background-image: url("./images/sharing.png");
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        header .modal-body{
+          text-align: left;          
+        }
+        form{
+          margin: 10px;
+        }
+        .modal-body .btn{
+          width: 100%;
+        }
+    </style>
+  </head>
+  <body>
+    <header>
+      <br>
+        <h2>海大共乘系統</h2>
+        <div style="text-align: right;">
+          <a href="#" type="button" class="btn btn-dark btn-sm" data-bs-toggle="modal" data-bs-target="#infomodal">修改個人資料</a>
+        </div>
+        
+        <div class="modal fade" id="infomodal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5>修改資料</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+              </div>
+              <div class="modal-body">
+                <form action="http://127.0.0.1:3000/showRider" method="post">
+                  <div class="input-group">
+                  <span class="input-group-text" id="newName">姓名</span>
+                  <input type="text" class="form-control" placeholder="新姓名" aria-label="Username" aria-describedby="newName" id="nN">
+                </div>     
+                <div class="input-group">
+                  <span class="input-group-text" id="newPhonenumber" >手機號碼</span>
+                  <input type="text" class="form-control" aria-label="Username" aria-describedby="newPhonenumber" id="nP" pattern="[0-9]{10}">
+                </div>              
+                <div class="form-group">
+                  性別
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="newSex" id="newsexM" value="boy">
+                    <label class="form-check-label" for="newsexM">男</label>
+                    <br>
+                    <input class="form-check-input" type="radio" name="newSex" id="newsexF" value="girl">
+                    <label class="form-check-label" for="newsexF">女</label>                   
+                  </div>                  
+                </div>
+                <button type="submit" class="btn btn-primary">確認</button>
+                </form>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+    </header>
+    <br>
+    <div class="container">
+      <!--篩選條件按鈕-->
+      <a href="#" type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#selectmodal" style="align-items: center;">篩選條件</a>
+      <!--跳出視窗-->  
+      <div class="modal fade" id="selectmodal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5>條件篩選</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            
+            <div class="modal-body">
+              <form action="http://127.0.0.1:3000/showRider" method="post">
+                <div class="form-group1">
+                  偏好車主性別
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="Sex" id="sexM" value="boy">
+                    <label class="form-check-label" for="sexM">男</label>
+                    <br>
+                    <input class="form-check-input" type="radio" name="Sex" id="sexF" value="girl">
+                    <label class="form-check-label" for="sexF">女</label>                   
+                  </div>                  
+                </div>        
+                <br>              
+                <div class="form-group2">
+                  車主是否備有安全帽
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="Helmet" id="yes" value="yes">
+                    <label class="form-check-label" for="yes">有</label>
+                    <br>
+                    <input class="form-check-input" type="radio" name="Helmet" id="no" value="no">
+                    <label class="form-check-label" for="no">無</label>                   
+                  </div>
+                </div>                            
+                <br>    
+                <select class="form-select" aria-label="Default select example">
+                  <option selected>目的地地區</option>
+                  <option value="1">仁愛區</option>
+                  <option value="2">中正區</option>
+                  <option value="3">信義區</option>
+                  <option value="4">中山區</option>
+                  <option value="5">安樂區</option>
+                  <option value="6">七堵區</option>
+                  <option value="7">暖暖區</option>
+                </select>          
+                <div class="input-group">                  
+                  <span class="input-group-text" id="destination">目的地</span>
+                  <input type="text" class="form-control" placeholder="完整地址" aria-label="Username" aria-describedby="destination" id="d">
+                </div>      
+                <select class="form-select" aria-label="Default select example">
+                  <option selected>乘車地區</option>
+                  <option value="1">仁愛區</option>
+                  <option value="2">中正區</option>
+                  <option value="3">信義區</option>
+                  <option value="4">中山區</option>
+                  <option value="5">安樂區</option>
+                  <option value="6">七堵區</option>
+                  <option value="7">暖暖區</option>
+                </select>              
+                <div class="input-group">                  
+                  <span class="input-group-text" id="getOn">乘車地點</span>
+                  <input type="text" class="form-control" placeholder="完整地址" aria-label="Username" aria-describedby="getOn" id="g">
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary">確認</button>
+              </form>      
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-group">
+
+      </div>      
+    </div>
+  </body>
+  <script>
+    var i;
+    var count;
+    $(document).ready(function () {
+      for(i=1;i<=5;i++){
+        $('.card-group').append(   
+          '<div class="col-md-12">'+
+            '<div class="card border-primary">'+
+              '<div class="card-header" style="background-color: rgb(157, 215, 233)">'+
+                '林大美'+          
+              '</div>'+
+              '<div class="card-body" style="background-color: rgb(205, 238, 248)">'+
+                '可搭乘時間:'+
+                '<br>'+
+                '預定搭乘地點:'+
+                '<br>'+
+                '預定目的地:'+
+                '<br>'+
+                '聯絡方式:'+
+                '<br>'+
+                '是否備有安全帽:'+
+              '</div>'+
+              '<div class="card-footer" style="background-color: rgb(157, 215, 233)">'+
+                '<div style="text-align: center;">'+
+                  '評分: 星<br>'+
+                  '<button id="'+i+'" class="btn btn-primary btn-sm" onclick="sendRequest()" style="background-color: rgb(0, 0, 0); text-align: center;">發送請求</button>'+
+                '</div> '+         
+              '</div>'+
+            '</div>'+
+          '<div>'             
+        )
+      }
+      count=i;
+      });
+
+      function selectAnswer(){
+        var s = $("[name='Sex']:checked").val();
+        var h = $("[name='Helmet']:checked").val();
+        var d = document.getElementById("d").value;
+        var g = document.getElementById("g").value;
+        alert(d);
+        alert(g);
+        //var z = $('select').val();
+      }
+      function sendRequest(){
+        //alert(count);
+        for(var j=1;j<=count-1;j++){
+          document.getElementById(j).disabled=true;
+        }
+        
+      }
+  </script>
+</html>

@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600&display=swap');
+
+
+body{
+    font-family: 'Noto Serif TC', serif;
+    background-color: cornsilk;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*If the screen size is 900 px wide or less ,hide the element*/
+@media only screen and (max-width: 980px){
+    div.img1{
+        display: none;
+    }
+}
+@media(max-width:569px){
+    .information{
+    overflow-x: auto;
+  }
+}
+
+.img1 > img{
+    position:absolute;
+    max-width: 25%; 
+    left: 50px;
+    bottom: 40px;
+}
+
+.container{
+    position: relative;
+    width:500px;
+    height:600px;
+
+}
+
+.page_title{
+    text-align: center;
+    margin-top: 30px;
+    font-size: 30px;
+    text-shadow: white 5px 10px 10px
+}
+
+.progress-bar{
+    display: flex;
+    margin: 10px 0;
+}
+
+.progress-bar .step{
+    text-align: center;
+    width: 100%;
+}
+
+
+.progress-bar .step p{
+    transition: 0.2s;
+}
+
+.progress-bar .step p.active{
+    color:  rgb(239, 145, 72);
+}
+
+.progress-bar .step .bullet{
+    height:25px;
+    width:25px;
+    border: 2px solid rgb(245, 125, 34);
+    background-color: cornsilk;
+    display: inline-block;
+    border-radius: 50%;
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 25px;  
+    transition: 0.2s;
+}
+
+.progress-bar .step .bullet.active{
+    border-color: black;
+    background-color: rgb(239, 145, 72);
+}
+
+/*在已經存在的現有元素前 / 後加上內容*/
+.progress-bar .step .bullet::before,
+.progress-bar .step .bullet::after{
+    position: absolute;
+    content: '';
+    height: 3px;
+    width: 100px;
+    top: 150px;
+    background-color: black;
+    z-index: -1;
+}
+
+.progress-bar .step .bullet::before,
+.progress-bar .step:last-child .bullet::after {
+    display: none;
+}
+
+.progress-bar .step .bullet.bullet.active::after{
+    background-color: black;
+    transform: scaleX(0);
+    animation: animate 0.3s linear forwards;
+}
+
+/*動畫*/
+@keyframes animate{
+    100%{
+        transform: scaleX(1);
+    }
+}
+
+.progress-bar .step span{
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 25px;
+    
+}
+
+.information{
+    margin:90px auto;
+    background-color:white;
+    border:1px solid #333;
+    border-radius:8px;
+    padding:10px;
+    max-width:400px;
+    /*不透明度*/
+    opacity: 0;
+    /*ease-in-out 緩入緩出*/
+    transition: 400ms ease-in-out;
+    /*平移元素*/
+    transform: translateX(200%);
+    position: absolute;
+    
+}
+
+.info-group{
+    display:flex;
+    /*系統預設row(水平)*/
+    flex-direction:column;
+    margin-bottom:10px;
+    /*設置網格行與列之間的間隙*/
+    gap: 5px;
+}
+
+.info-group:last-child{
+    margin:0;
+}
+
+.info-group > label{
+    font-family: 'Noto Serif TC', serif;
+    font-weight:bold;
+    font-size:18px;
+}
+
+.info-group > input{
+    border-radius:4px;
+    border:1px solid;
+    padding:8px;
+}
+
+.info-group > p{
+    /*用來設計網頁中圖片在垂直方向的對齊方式*/
+    vertical-align: middle;
+    text-align: center;
+}
+
+.info-group > input[type='radio']{
+    vertical-align: middle;
+    border-radius:4px;
+}
+
+.info-group > select{
+    font-family: 'Noto Serif TC', serif;
+}
+
+button{
+    font-family: 'Noto Serif TC', serif;
+    background-color:white;
+    width: 150px;
+    height:50px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border: 1px solid;
+    opacity: 1;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+    width: 100%;
+    
+}
+
+button:hover{
+    cursor: pointer;
+    background-color:beige;
+}
+
+.step-title{
+    text-align:center;
+}
+
+.time-title{
+
+    text-align:center;
+
+}
+
+.location-title{
+
+    text-align:center;
+
+}
+
+.information.active{
+    position: static;
+    /*display:block;*/
+    transform: translateX(0);
+    /*動畫觸發的延遲時間*/
+    transition-delay: 400ms;
+    opacity: 1;
+}
+
+.multi-data-form{
+    overflow: hidden;
+    position: relative;
+}
+
+
+.other_info{
+    height:100px;
+    width:250px;
+}

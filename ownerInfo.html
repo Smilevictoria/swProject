@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./stylesheets/infoPage_styles.css">
+  <script src="./javascripts/infoPage_scripts.js" defer></script>
+  <title>設定個人資料</title>
+</head>
+<body>
+  <div class="img1"><img src="./images/reading-side.png"></div>
+  <div class="container">
+    <div class="page_title">個人資訊設定</div>
+    <div class="progress-bar">
+      <div class="step">
+        <p>Info</p>
+        <div class="bullet">
+          <span>1</span>
+        </div>
+      </div>
+      <div class="step">
+        <p>Time</p>
+        <div class="bullet">
+          <span>2</span>
+        </div>
+      </div>
+      <div class="step">
+        <p>area</p>
+        <div class="bullet">
+          <span>3</span>
+        </div>
+      </div>
+      <div class="step">
+        <p>Other</p>
+        <div class="bullet">
+          <span>4</span>
+        </div>
+      </div>
+    </div>
+    <form data-multi-step class="multi-data-form" action="http://127.0.0.1:3000/ownerInfo" method="post">
+      <div class="information" data-step>
+        <h3 class="step-title">Step 1</h3>
+        <div class="info-group">
+          <label for="name">姓名</label>
+          <input type="text" required name="name" id="name">
+        </div>
+        <div class="info-group">
+          <label for="gender">性別</label>
+          <select required name="gender" id="gender">
+            <option value="">請選擇你的性別</option>
+            <option value="male">男</option>
+            <option value="female">女</option>
+          </select>
+        </div>
+        <div class="info-group">
+          <label for="phone">手機號碼</label>
+          <input type="tel" required name="phone" id="phone" pattern="[0-9]{10}" >
+        </div>
+        <div class="info-group">
+          <label for="licensePlateNum">車牌</label>
+          <input type="text" required name="licensePlateNum" id="licensePlateNum" >
+        </div>
+        <div class="info-group">
+          <p><label>是否提供安全帽:</label>
+          <input type="radio" value="yes" name="helmet">是
+          <input type="radio" value="no" name="helmet">否</p>
+        </div>
+        <button type="button" class="nextBtn" data-next>Next</button>
+      </div>
+      <div class="information" data-step>
+        <h3 class="step-title">Step 2</h3>
+        <div class="info-group">
+          <h2 class="time-title">請選擇可接送的時段</h2>
+          <p><input type="checkbox" value="zero-one" name="workingTime">00:00-01:00
+          <input type="checkbox" value="one-two" name="workingTime">01:00-02:00</p>
+          <p><input type="checkbox" value="two-three" name="workingTime">02:00-03:00
+          <input type="checkbox" value="three-four" name="workingTime">03:00-04:00</p>
+          <p><input type="checkbox" value="four-five" name="workingTime">04:00-05:00
+          <input type="checkbox" value="five-six" name="workingTime">05:00-06:00</p>
+          <p><input type="checkbox" value="six-seven" name="workingTime">06:00-07:00
+          <input type="checkbox" value="seven-eight" name="workingTime">07:00-08:00</p>
+          <p><input type="checkbox" value="eight-nine" name="workingTime">08:00-09:00
+          <input type="checkbox" value="nine-ten" name="workingTime">09:00-10:00</p>
+          <p><input type="checkbox" value="ten-eleven" name="workingTime">10:00-11:00
+          <input type="checkbox" value="eleven-twelve" name="workingTime">11:00-12:00</p>
+          <p><input type="checkbox" value="twelve-thirteen" name="workingTime">12:00-13:00
+          <input type="checkbox" value="thirteen-fourteen" name="workingTime">13:00-14:00</p>
+          <p><input type="checkbox" value="fourteen-fifteen"name="workingTime">14:00-15:00
+          <input type="checkbox" value="fifteen-sixteen" name="workingTime">15:00-16:00</p>
+          <p><input type="checkbox" value="sixteen-seventeen" name="workingTime">16:00-17:00
+          <input type="checkbox" value="seventeen-eighteen" name="workingTime">17:00-18:00</p>
+          <p><input type="checkbox" value="eighteen-nineteen" name="workingTime">18:00-19:00
+          <input type="checkbox" value="nineteen-twenty" name="workingTime">19:00-20:00</p>
+          <p><input type="checkbox" value="twenty-twentyOne" name="workingTime">20:00-21:00
+          <input type="checkbox" value="twentyOne-twentyTwo" name="workingTime">21:00-22:00</p>
+          <p><input type="checkbox" value="twentyTwo-twentyThree" name="workingTime">22:00-23:00
+          <input type="checkbox" value="twentyThree-twentyFour" name="workingTime">23:00-00:00</p>
+          
+        </div>
+        <button type="button" class="preBtn-1" data-previous>Previous</button>
+        <button type="button" class="nextBtn-1" data-next>Next</button>
+      </div>
+      <div class="information" data-step>
+        <h3 class="step-title">Step 3</h3>
+        <div class="info-group">
+          <h3 class="location-title">可接受接送的區域</h3>
+          <p><input type="checkbox" value="Zhongzheng" name="location" id="Zhongzheng" style="vertical-align:middle;">中正區<br></p>
+          <p><input type="checkbox" value="Sinyi" name="location" id="Sinyi">信義區<br></p>
+          <p><input type="checkbox" value="Ren-ai" name="location" id="Ren-ai">仁愛區<br></p>
+          <p><input type="checkbox" value="Zhongshan" name="location" id="Zhongshan">中山區<br></p>
+          <p><input type="checkbox" value="Anle" name="location" id="Anle">安樂區<br></p>
+          <p><input type="checkbox" value="Nuannuan" name="location" id="Nuannuan">暖暖區<br></p>
+          <p><input type="checkbox" value="Qidu" name="location" id="Qidu">七堵區<br></p>
+        </div>
+        <button type="button" class="preBtn-2" data-previous>Previous</button>
+        <button type="button" class="nextBtn-2" data-next>Next</button>
+      </div>
+      <div class="information" data-step>
+        <h3 class="step-title">Step 4</h3>
+        <div class="info-group">
+          <h3 class="location-title">其他需求</h3>
+          <p><input type="text" class="other_info" name="other" id="other" value="其他資訊..." height="50px" width="50px"></p>
+        </div>
+        <button type="button" class="preBtn-3" data-previous>Previous</button>
+        <button type="Submit">Submit</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

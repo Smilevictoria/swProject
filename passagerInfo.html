@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./stylesheets/passagerInfo.css">
+  <title>設定乘客個人資料</title>
+</head>
+<body>
+<div class="img1"><img src="./images/reading-side.png"></div>
+<div class="container">
+  <form action="http://127.0.0.1:3000/passengerInfo" method="post">
+    <div class="information" >
+      <div class="page_title">個人資訊設定</div>
+      <div class="info-group">
+        <label for="name">姓名</label>
+        <input type="text" required name="name" id="name">
+      </div>
+      <div class="info-group">
+        <label for="gender">性別</label>
+        <select required name="gender" id="gender">
+          <option value="">請選擇你的性別</option>
+          <option value="male">男</option>
+          <option value="female">女</option>
+        </select>
+      </div>
+      <div class="info-group">
+        <label for="phone">手機號碼</label>
+        <input type="tel" required name="phone" id="phone" pattern="[0-9]{10}" >
+      </div>
+      <button type="submit">Submit</button>
+    </div>
+  </form>
+</div>
+</body>
+</html>

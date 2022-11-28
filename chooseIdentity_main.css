@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600&display=swap');
+
+@media screen and (max-width: 767px){
+    .btn{
+        min-width: 80vw;
+        min-height: 30vh;
+    }
+    button{
+        min-height: 10vh;
+        min-width: 32vw;
+        margin-right: 10px;
+    }
+}
+/*
+@media screen and (min-width: 500px) and (max-width: 900px){ 
+    .btn{
+        min-width: 80vw;
+        min-height: 30vh;
+    }
+    button{
+        min-height: 10vh;
+        min-width: 26vw;
+        margin-right: 10px;
+    }
+}
+*/
+body{
+    background-color: cornsilk;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*填入100vh和100vw時，我的inner要佔滿整個螢幕的可視範圍*/
+    /*vh是view height，指螢幕可視範圍高度的百分比；vw則是view width，指螢幕可是範圍寬度的百分比。*/
+    min-height: 100vh;
+    width: 100%;
+}
+
+
+.container{
+    width: 800px;
+    height: 700px;
+    position: relative;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+    /*margin-top:150px;*/
+}
+
+.choice{
+    align-items: center;
+    justify-content: center;
+}
+
+h1{
+    font-family: 'Noto Serif TC', serif;
+    text-align: center;
+}
+
+.btn{
+    background-color: white;
+    border: 1px black solid;
+    border-radius: 10px;
+    min-width: 35vw;
+    height: 35vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+button{
+    background-color:antiquewhite;
+    /*外距*/
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 10px;
+    border-radius: 20px;
+    height: 12vh;
+    width: 12vw;
+    font-size: 20px;
+    font-family: 'Noto Serif TC', serif;
+}
+
+button:hover{
+    cursor: pointer;
+    background-color: bisque;
+}
+
+.arrow{
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 150px;
+}
+
+.star{
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    width: 220px;
+}
+
+.pointed-star{
+    position: absolute;
+    top: 5px;
+    left:0px;
+    width: 150px;
+}
+
+.people{
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    width: 150px;
+}
